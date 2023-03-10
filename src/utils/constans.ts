@@ -1,0 +1,1 @@
+export const ADD_CALC_PART = 'ADD_CALC_PART' as const;

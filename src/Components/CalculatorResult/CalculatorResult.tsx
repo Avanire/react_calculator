@@ -6,7 +6,7 @@ const CalculatorResult: FC = () => {
 
     return (
         <CalculatorComponent>
-            <div className={`bg-gray-100 rounded-md py-1 px-2 text-4xl font-extrabold text-gray-900 text-right`}>
+            <div className={`bg-gray-100 rounded-md py-1 px-2 text-4xl font-extrabold text-gray-900 text-right`} id='CalculatorResult'>
                 {result}
             </div>
         </CalculatorComponent>

@@ -5,7 +5,7 @@ import CalculatorButton from "../CalculatorButton/CalculatorButton";
 const CalculatorNumberPanel: FC = () => {
     return (
         <CalculatorComponent>
-            <div className={`grid grid-cols-3 gap-2`}>
+            <div className={`grid grid-cols-3 gap-2`} id='CalculatorNumberPanel'>
                 <CalculatorButton>7</CalculatorButton>
                 <CalculatorButton>8</CalculatorButton>
                 <CalculatorButton>9</CalculatorButton>

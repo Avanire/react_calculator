@@ -2,8 +2,10 @@ import React, {FC, ReactElement} from "react";
 import {useDrag} from "react-dnd";
 
 const CalculatorComponent: FC<{children: ReactElement}> = ({children}) => {
+
     const [{isDragging}, drag, dragPreview] = useDrag({
         type: 'Component',
+        item: children,
         collect: (monitor) => ({
             isDragging: monitor.isDragging()
         })
