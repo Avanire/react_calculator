@@ -10,6 +10,9 @@ module.exports = {
         iris: {
           100: '#5D5FEF'
         },
+        sky: {
+          50: '#F0F9FF'
+        },
         textSecondColor: '#4D5562',
         borderColor: '#E2E3E5',
         borderDashedColor: '#C4C4C4'

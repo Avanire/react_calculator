@@ -9,6 +9,7 @@ import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";
 
 function App() {
+
     return (
         <main className={`w-[33.7rem] mx-auto mt-10`}>
             <div className={`mb-[1.875rem]`}><ControlPanel/></div>
