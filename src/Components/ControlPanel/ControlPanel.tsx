@@ -9,8 +9,8 @@ const ControlPanel: FC = () => {
 
     return (
         <section className={`w-full`}>
-            <div className={`w-[15.2rem] flex items-center justify-between bg-bgColor rounded-[5px] ml-auto h-[2.375rem]`}>
-                <label htmlFor='runtime' className={`px-3 py-2 text-sm font-medium text-textSecondColor flex items-center gap-x-2 ${selected === 'runtime' ? 'bg-white rounded-[5px] border border-borderColor' : ''}`}>
+            <div className={`w-[15.2rem] flex items-center justify-between bg-gray-100 rounded-[5px] ml-auto h-[2.375rem]`}>
+                <label htmlFor='runtime' className={`px-[0.6875rem] py-[0.4375rem] text-sm font-medium text-textSecondColor flex items-center gap-x-2 ${selected === 'runtime' ? 'bg-white rounded-[5px] border border-borderColor' : ''}`}>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M11.7678 11.7678C12.2366 11.2989 12.5 10.663 12.5 10C12.5 9.33696 12.2366 8.70107 11.7678 8.23223C11.2989 7.76339 10.663 7.5 10 7.5C9.33696 7.5 8.70107 7.76339 8.23223 8.23223C7.76339 8.70107 7.5 9.33696 7.5 10C7.5 10.663 7.76339 11.2989 8.23223 11.7678C8.70107 12.2366 9.33696 12.5 10 12.5C10.663 12.5 11.2989 12.2366 11.7678 11.7678Z"
@@ -22,7 +22,7 @@ const ControlPanel: FC = () => {
                     Runtime
                     <input type="radio" id='runtime' value='runtime' name='control-panel' onChange={handleChange} className={`hidden`}/>
                 </label>
-                <label htmlFor='constructor' className={`px-3 py-2 text-sm font-medium text-textSecondColor flex items-center gap-x-2 ${selected === 'constructor' ? 'bg-white rounded-[5px] border border-borderColor' : ''}`}>
+                <label htmlFor='constructor' className={`px-[0.6875rem] py-[0.4375rem] text-sm font-medium text-textSecondColor flex items-center gap-x-2 ${selected === 'constructor' ? 'bg-white rounded-[5px] border border-borderColor' : ''}`}>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.5 13.3333L4.16666 10L7.5 6.66668M12.5 6.66668L15.8333 10L12.5 13.3333"
                               stroke={selected === 'constructor' ? '#5D5FEF' : '#4D5562'} strokeWidth="2"

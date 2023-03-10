@@ -7,11 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        mainColor: '#5D5FEF',
-        textMainColor: '#000000',
+        iris: {
+          100: '#5D5FEF'
+        },
         textSecondColor: '#4D5562',
-        bgColor: '#F3F4F6',
-        borderColor: '#E2E3E5'
+        borderColor: '#E2E3E5',
+        borderDashedColor: '#C4C4C4'
+      },
+      boxShadow: {
+        componentCalcShadow: '0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1)'
       }
     }
   },
