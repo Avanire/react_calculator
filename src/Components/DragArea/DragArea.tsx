@@ -1,9 +1,8 @@
-import React, {FC, ReactElement, useCallback} from "react";
+import React, {FC, useCallback} from "react";
 import dropIcon from '../../images/drop-area-icon.svg';
 import {useDrop} from "react-dnd";
 import {addCalcPart, changePositionCalcElem} from "../../services/actions/calculator";
 import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
-import {renderToString} from "react-dom/server";
 import {IConstructorElement} from "../../utils/types";
 import styles from './DragArea.module.css';
 import DragAreaElement from "../DragAreaElement/DragAreaElement";
@@ -14,27 +13,17 @@ const DragArea: FC = () => {
 
     const [{isOver}, dropTarget] = useDrop({
         accept: 'Component',
-        drop(item: ReactElement) {
-            handleAddElement(item);
+        drop(item: IConstructorElement) {
+            dispatch({
+                type: addCalcPart.type,
+                payload: item
+            });
         },
         collect: (monitor) => ({
             isOver: monitor.isOver()
         })
     });
 
-    const handleAddElement = useCallback((reactElement: ReactElement) => {
-        const serializeElement = renderToString(reactElement);
-
-        const payload: IConstructorElement = {
-            id: reactElement.props.id,
-            element: serializeElement
-        };
-
-        dispatch({
-            type: addCalcPart.type,
-            payload: payload
-        });
-    }, []);
 
     const moveCard = useCallback((dragIndex: number, hoverIndex: number) => {
         dispatch({

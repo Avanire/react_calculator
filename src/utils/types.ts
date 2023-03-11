@@ -9,6 +9,7 @@ export interface ICalculatorConstructor {
 export interface IConstructorElement {
     readonly id: string;
     readonly element: string;
+    readonly isExists: boolean;
 }
 
 export interface IDragAreaElement {
@@ -22,8 +23,6 @@ export interface IPositionChangeObj {
     readonly dragIndex: number;
     readonly hoverIndex: number;
 }
-
-export declare type Identifier = string | symbol;
 
 export interface IDragItem {
     index: number

@@ -19,15 +19,16 @@ const DragAreaElement: FC<IDragAreaElement> = ({index, id, element, moveCard}) =
             const hoverIndex = index;
 
             if (dragIndex === hoverIndex) {
-                return
+                return;
             }
 
             moveCard(dragIndex, hoverIndex);
         },
         hover(item, monitor) {
             if (!sortingElement.current) {
-                return
+                return;
             }
+
             const dragIndex = item.index
             const hoverIndex = index
 
@@ -37,12 +38,11 @@ const DragAreaElement: FC<IDragAreaElement> = ({index, id, element, moveCard}) =
 
             const hoverBoundingRect = sortingElement.current?.getBoundingClientRect()
 
-            const hoverMiddleY =
-                (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
+            const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
 
             const clientOffset = monitor.getClientOffset()
 
-            const hoverClientY = (clientOffset as IXYCoord).y - hoverBoundingRect.top
+            const hoverClientY = (clientOffset as IXYCoord).y - hoverBoundingRect.top;
 
             if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
                 setDirection('downward');
@@ -59,7 +59,11 @@ const DragAreaElement: FC<IDragAreaElement> = ({index, id, element, moveCard}) =
     const [{isDragging}, drag] = useDrag({
         type: 'sort',
         item: () => {
-            return {id, index}
+            if (id === 'CalculatorResult') {
+                return;
+            } else {
+                return {id, index}
+            }
         },
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
