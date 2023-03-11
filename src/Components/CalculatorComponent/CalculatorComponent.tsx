@@ -1,7 +1,7 @@
-import React, {FC, ReactElement} from "react";
+import React, {FC, JSXElementConstructor, ReactElement, ReactNode} from "react";
 import {useDrag} from "react-dnd";
 
-const CalculatorComponent: FC<{children: ReactElement}> = ({children}) => {
+const CalculatorComponent: FC<{children: ReactElement<JSXElementConstructor<ReactNode>>}> = ({children}) => {
 
     const [{isDragging}, drag, dragPreview] = useDrag({
         type: 'Component',

@@ -1,9 +1,6 @@
 import {createReducer} from "@reduxjs/toolkit";
 import {addCalcPart} from "../actions/calculator";
-
-export interface ICalculatorConstructor {
-    readonly constructor: Array<string>;
-}
+import {ICalculatorConstructor} from "../../utils/types";
 
 const initialState: ICalculatorConstructor = {
     constructor: []
@@ -12,6 +9,11 @@ const initialState: ICalculatorConstructor = {
 export const calculatorConstructor = createReducer(initialState, (builder) => {
     builder
         .addCase(addCalcPart, (state, action) => {
+            const isExists = state.constructor.find(item => item.id === action.payload.id);
+
+            if (isExists) {
+                return state;
+            }
 
             return {
                 constructor: [...state.constructor, action.payload]
