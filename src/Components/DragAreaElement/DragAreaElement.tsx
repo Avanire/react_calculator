@@ -85,7 +85,13 @@ const DragAreaElement: FC<IDragAreaElement> = ({index, id, element, moveCard}) =
     }
 
     return (
-        <div ref={sortingElement} style={{opacity}} className={hoverClass} onDoubleClick={() => handleDoubleClick(id)}>{createElement(element.type, element.props)}</div>
+        <div ref={sortingElement}
+             style={{opacity}}
+             className={`${hoverClass}`}
+             onDoubleClick={() => handleDoubleClick(id)}
+        >
+            {createElement(element.type, element.props)}
+        </div>
     );
 }
 

@@ -73,7 +73,7 @@ export const calculatorConstructor = createReducer(initialState, (builder) => {
             return {
                 ...state,
                 result: '',
-                display: state.display === '0' ? action.payload : state.display.concat(action.payload)
+                display: state.display === '0' ? action.payload === ',' ? '0,' : action.payload : state.display.concat(action.payload)
             }
         })
         .addCase(addOperator, (state, action) => {
