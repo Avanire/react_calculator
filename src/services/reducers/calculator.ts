@@ -1,5 +1,5 @@
 import {createReducer} from "@reduxjs/toolkit";
-import {addCalcPart} from "../actions/calculator";
+import {addCalcPart, changePositionCalcElem} from "../actions/calculator";
 import {ICalculatorConstructor} from "../../utils/types";
 
 const initialState: ICalculatorConstructor = {
@@ -17,6 +17,16 @@ export const calculatorConstructor = createReducer(initialState, (builder) => {
 
             return {
                 constructor: [...state.constructor, action.payload]
+            }
+        })
+        .addCase(changePositionCalcElem, (state, action) => {
+            const newConstructor = [...state.constructor];
+            const dragCard = newConstructor[action.payload.dragIndex];
+            newConstructor.splice(action.payload.dragIndex, 1);
+            newConstructor.splice(action.payload.hoverIndex, 0, dragCard);
+
+            return {
+                constructor: newConstructor
             }
         });
 });
