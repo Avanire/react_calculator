@@ -5,7 +5,7 @@ import {
     addOperator,
     changeCalcType,
     changePositionCalcElem,
-    pressEqualButton
+    pressEqualButton, removeCalcPart
 } from "../actions/calculator";
 import {ICalculatorConstructor} from "../../utils/types";
 import {calculatorFunction, roundNumber} from "../../utils/utils";
@@ -39,6 +39,12 @@ export const calculatorConstructor = createReducer(initialState, (builder) => {
             return {
                 ...state,
                 constructor: [...state.constructor, action.payload]
+            }
+        })
+        .addCase(removeCalcPart, (state, action) => {
+            return {
+                ...state,
+                constructor: state.constructor.filter(item => item.id !== action.payload)
             }
         })
         .addCase(changePositionCalcElem, (state, action) => {
