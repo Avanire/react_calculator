@@ -1,0 +1,12 @@
+.dragHover > div {
+    position: relative;
+}
+
+.dragHover > div:last-child::after {
+    content: url("../../images/calc-line.svg");
+    position: absolute;
+    bottom: 7px;
+    left: -5px;
+    width: 100%;
+    height: 1px;
+}

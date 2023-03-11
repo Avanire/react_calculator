@@ -1,11 +1,11 @@
-import React, {FC, ReactElement} from "react";
+import React, {FC, useCallback} from "react";
 import dropIcon from '../../images/drop-area-icon.svg';
 import {useDrop} from "react-dnd";
-import {addCalcPart} from "../../services/actions/calculator";
+import {addCalcPart, changePositionCalcElem} from "../../services/actions/calculator";
 import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
-import {renderToString} from "react-dom/server";
-import {Interweave} from "interweave";
 import {IConstructorElement} from "../../utils/types";
+import styles from './DragArea.module.css';
+import DragAreaElement from "../DragAreaElement/DragAreaElement";
 
 const DragArea: FC = () => {
     const dispatch = useAppDispatch();
@@ -13,33 +13,31 @@ const DragArea: FC = () => {
 
     const [{isOver}, dropTarget] = useDrop({
         accept: 'Component',
-        drop(item: ReactElement) {
-            handleAddElement(item);
+        drop(item: IConstructorElement) {
+            dispatch({
+                type: addCalcPart.type,
+                payload: item
+            });
         },
         collect: (monitor) => ({
             isOver: monitor.isOver()
         })
     });
 
-    const handleAddElement = (reactElement: ReactElement) => {
-        const serializeElement = renderToString(reactElement);
 
-        const payload: IConstructorElement = {
-            id: reactElement.props.id,
-            element: serializeElement
-        };
-
+    const moveCard = useCallback((dragIndex: number, hoverIndex: number) => {
         dispatch({
-            type: addCalcPart.type,
-            payload: payload
-        });
-    }
+            type: changePositionCalcElem.type,
+            payload: {dragIndex, hoverIndex}
+        })
+    }, []);
 
     return (
         constructor.length > 0 ? (
-            <div className={`flex flex-col space-y-3`} ref={dropTarget}>
+            <div className={`flex flex-col space-y-3 ${isOver ? styles.dragHover : ''}`} ref={dropTarget}>
                 {
-                    constructor.map(item  => <Interweave key={item.id} content={item.element} />)
+                    constructor.map((item, index) => <DragAreaElement key={item.id} index={index} element={item.element}
+                                                                      moveCard={moveCard} id={item.id}/>)
                 }
             </div>
         ) : (
