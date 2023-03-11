@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "./static/css/main.adb9fbe9.css",
+    "main.js": "./static/js/main.d0205bd3.js",
+    "static/js/787.0ab02775.chunk.js": "./static/js/787.0ab02775.chunk.js",
+    "static/media/Inter-Medium.woff": "./static/media/Inter-Medium.47dab40ed900460afcc0.woff",
+    "static/media/Inter-Regular.woff": "./static/media/Inter-Regular.ae2ac50c3db4c5420cf8.woff",
+    "static/media/drop-area-icon.svg": "./static/media/drop-area-icon.7ceecf6a868baded8dc04648cebe55c3.svg",
+    "index.html": "./index.html",
+    "static/media/calc-line.svg": "./static/media/calc-line.9ea9e9f8fcda458ea456.svg",
+    "main.adb9fbe9.css.map": "./static/css/main.adb9fbe9.css.map",
+    "main.d0205bd3.js.map": "./static/js/main.d0205bd3.js.map",
+    "787.0ab02775.chunk.js.map": "./static/js/787.0ab02775.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.adb9fbe9.css",
+    "static/js/main.d0205bd3.js"
+  ]
+}
