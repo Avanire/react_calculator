@@ -1,6 +1,5 @@
 import React, {FC, JSXElementConstructor, ReactElement, ReactNode, useCallback, useMemo} from "react";
 import {useDrag} from "react-dnd";
-import {renderToString} from "react-dom/server";
 import {IConstructorElement} from "../../utils/types";
 import {useAppSelector} from "../../hooks/hooks";
 
@@ -8,11 +7,10 @@ const CalculatorComponent: FC<{ children: ReactElement<JSXElementConstructor<Rea
     const constructorElements = useAppSelector(state => state.calculatorConstructor.constructor);
 
     const serializeElementFunction = useCallback((reactElement: ReactElement): IConstructorElement => {
-        const serializeElement = renderToString(reactElement);
 
         return {
             id: reactElement.props.id,
-            element: serializeElement,
+            element: reactElement,
             isExists: true
         };
     }, []);

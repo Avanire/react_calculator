@@ -1,10 +1,16 @@
-import React, {ChangeEvent, FC, useCallback, useState} from "react";
+import React, {ChangeEvent, FC, useCallback} from "react";
+import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
+import {changeCalcType} from "../../services/actions/calculator";
 
 const ControlPanel: FC = () => {
-    const [selected, setSelected] = useState<string>('constructor');
+    const selected = useAppSelector(state => state.calculatorConstructor.type);
+    const dispatch = useAppDispatch();
 
     const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        setSelected(e.target.value);
+        dispatch({
+            type: changeCalcType.type,
+            payload: e.target.value
+        });
     },[]);
 
     return (

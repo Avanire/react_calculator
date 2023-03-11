@@ -1,5 +1,4 @@
 import React, {FC, useRef, useState} from "react";
-import {Interweave} from "interweave";
 import {useDrag, useDrop} from "react-dnd";
 import {IDragAreaElement, IDragItem, IXYCoord} from "../../utils/types";
 import styles from './DragAreaElement.module.css';
@@ -76,7 +75,7 @@ const DragAreaElement: FC<IDragAreaElement> = ({index, id, element, moveCard}) =
     drag(drop(sortingElement));
 
     return (
-        <div ref={sortingElement} style={{opacity}} className={hoverClass}><Interweave content={element}/></div>
+        <div ref={sortingElement} style={{opacity}} className={hoverClass}>{element}</div>
     );
 }
 

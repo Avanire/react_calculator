@@ -1,13 +1,13 @@
-import React, {FC, useState} from "react";
+import React, {FC} from "react";
 import CalculatorComponent from "../CalculatorComponent/CalculatorComponent";
+import Result from "../Result/Result";
 
 const CalculatorResult: FC = () => {
-    const [result, setResult] = useState<number>(0);
-
     return (
         <CalculatorComponent>
-            <div className={`bg-gray-100 rounded-md py-1 px-2 text-4xl font-extrabold text-gray-900 text-right`} id='CalculatorResult'>
-                {result}
+            <div className={`bg-gray-100 rounded-md py-1 px-2 text-4xl font-extrabold text-gray-900 text-right`}
+                 id='CalculatorResult'>
+                <Result/>
             </div>
         </CalculatorComponent>
     );
